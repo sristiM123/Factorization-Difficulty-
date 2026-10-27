@@ -5,7 +5,8 @@ from src.benchmarks import (
     pollard_rho,
     benchmark_pollard_rho,
     benchmark_ecm,
-    benchmark_quadratic_sieve,
+    benchmark_pollard_pm1,
+    benchmark_fermat,
     benchmark_semiprime,
     benchmark_batch,
     BenchmarkResult,
@@ -58,10 +59,10 @@ class TestBenchmarkWrappers:
         assert result.algorithm == "ecm"
         assert result.N == 1001
 
-    def test_qs_result_structure(self):
-        result = benchmark_quadratic_sieve(143, timeout=5)
+    def test_fermat_result_structure(self):
+        result = benchmark_fermat(143, timeout=5)
         assert isinstance(result, BenchmarkResult)
-        assert result.algorithm == "quadratic_sieve"
+        assert result.algorithm == "fermat"
         assert result.N == 143
 
 
@@ -77,7 +78,8 @@ class TestMasterRunner:
             "best_algorithm", "min_runtime", "log_min_runtime",
             "runtime_pollard_rho", "success_pollard_rho", "timeout_pollard_rho",
             "runtime_ecm", "success_ecm", "timeout_ecm",
-            "runtime_quadratic_sieve", "success_quadratic_sieve", "timeout_quadratic_sieve",
+            "runtime_pollard_pm1", "success_pollard_pm1", "timeout_pollard_pm1",
+            "runtime_fermat", "success_fermat", "timeout_fermat",
         }
         assert required_keys.issubset(result.keys())
 
@@ -87,7 +89,7 @@ class TestMasterRunner:
         assert isinstance(result["best_algorithm"], str)
         assert isinstance(result["min_runtime"], float)
         assert isinstance(result["log_min_runtime"], float)
-        for algo in ["pollard_rho", "ecm", "quadratic_sieve"]:
+        for algo in ["pollard_rho", "pollard_pm1", "ecm", "fermat"]:
             assert isinstance(result[f"runtime_{algo}"], float)
             assert isinstance(result[f"success_{algo}"], bool)
             assert isinstance(result[f"timeout_{algo}"], bool)
@@ -104,7 +106,7 @@ class TestMasterRunner:
             algo = result["best_algorithm"]
             assert result[f"success_{algo}"] is True
             best_time = result[f"runtime_{algo}"]
-            for other in ["pollard_rho", "ecm", "quadratic_sieve"]:
+            for other in ["pollard_rho", "pollard_pm1", "ecm", "fermat"]:
                 if result[f"success_{other}"]:
                     assert result[f"runtime_{other}"] >= best_time - 1e-9
 
@@ -112,7 +114,8 @@ class TestMasterRunner:
         """Every algorithm in ALGORITHM_MAP must have a callable function."""
         assert "pollard_rho" in ALGORITHM_MAP
         assert "ecm" in ALGORITHM_MAP
-        assert "quadratic_sieve" in ALGORITHM_MAP
+        assert "pollard_pm1" in ALGORITHM_MAP
+        assert "fermat" in ALGORITHM_MAP
         for name, fn in ALGORITHM_MAP.items():
             assert callable(fn)
 
