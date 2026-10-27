@@ -1,0 +1,9 @@
+model,task,R2,MAE,Accuracy,F1_macro
+bit_length_baseline,regression,0.4928047986790969,,,
+xgboost,regression,0.5235996804582703,2.4176156754905955,,
+catboost,regression,0.5425357868821006,2.3619505192086434,,
+mlp_full,regression,0.5333130697096213,2.363388569046375,,
+stacked_ensemble,regression,0.5434131993867815,2.3593388362029564,,
+oracle_ceiling,regression,0.7150362950376175,1.8355894147008363,,
+classifier_4class,classification,,,0.7604055496264674,0.3874566257774834
+majority_baseline,classification,,,0.5323635393033498,

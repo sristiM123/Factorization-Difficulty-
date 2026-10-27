@@ -1,0 +1,31 @@
+{
+  "architecture": "XGBoost + CatBoost + ElasticNet (simplified)",
+  "reason": "MLP ablation showed 0.0% R\u00b2 contribution \u2014 removed",
+  "n_base_learners": 2,
+  "base_learners": [
+    "xgboost",
+    "catboost"
+  ],
+  "meta_learner": "elasticnet",
+  "classifier": "xgboost_4class",
+  "n_train": 7493,
+  "n_test": 1874,
+  "n_features": 39,
+  "regression_r2": 0.5429601115401934,
+  "regression_mae": 2.3677340594457066,
+  "classification_accuracy": 0.7604055496264674,
+  "classification_f1_macro": 0.3874566257774834,
+  "oracle_ceiling_r2": 0.7150362950376175,
+  "baseline_r2": 0.4928047986790969,
+  "meta_weights": {
+    "xgboost": 0.02244602442152555,
+    "catboost": 0.9547920863846916,
+    "intercept": -0.1559910637525519
+  },
+  "ablation_evidence": {
+    "xgboost_drop": -0.0281,
+    "catboost_drop": -0.0102,
+    "mlp_drop": 0.0
+  },
+  "seed": 42
+}

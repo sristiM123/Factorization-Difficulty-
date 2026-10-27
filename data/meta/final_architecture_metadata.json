@@ -1,0 +1,36 @@
+{
+  "architecture": {
+    "regressor": "RandomForestRegressor (n=300, depth=10)",
+    "classifier": "XGBClassifier + Platt calibration",
+    "risk_engine": "3-component vulnerability scoring"
+  },
+  "regression_metrics": {
+    "R2_test": 0.5412679552929278,
+    "MAE_test": 2.371086270763453,
+    "Pearson_r": 0.7359628995786175,
+    "Spearman_rho": 0.7378212453580516
+  },
+  "classification_metrics": {
+    "accuracy": 0.6270010672358591,
+    "f1_macro": 0.3860942087231295,
+    "f1_weighted": 0.6432165038090929
+  },
+  "risk_assessment": {
+    "total_assessed": 9367,
+    "migration_tiers": {
+      "PLANNED": 6395,
+      "URGENT": 2972
+    },
+    "confidence_levels": {
+      "LOW": 9352,
+      "MODERATE": 15
+    }
+  },
+  "design_justification": {
+    "why_random_forest": "Best single model in 5-fold CV (R\u00b2=0.558\u00b10.021), simpler than stacking",
+    "why_calibration": "Industry needs confidence percentages, not just class labels",
+    "why_risk_engine": "Combines ML predictions with NIST standards for actionable output",
+    "ablation_evidence": "MLP contributed 0% R\u00b2 \u2014 removed. Stacking added 0.04% \u2014 simplified."
+  },
+  "seed": 42
+}

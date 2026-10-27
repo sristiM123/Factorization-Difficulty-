@@ -1,0 +1,32 @@
+{
+  "total_samples": 10000,
+  "bit_ranges": {
+    "32-64": 8000,
+    "64-96": 6000,
+    "96-128": 4000,
+    "128-160": 2000
+  },
+  "structure_ratios": {
+    "balanced": 0.4,
+    "moderate": 0.3,
+    "unbalanced": 0.2,
+    "special": 0.1
+  },
+  "seed": 42,
+  "timeout_seconds": 5,
+  "checksum": "cd9745d7fbe659aec8885f038c977606",
+  "environment": {
+    "timestamp": "2026-04-18T19:53:12.493492",
+    "python": "3.13.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel",
+    "machine": "AMD64",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "sklearn": "1.8.0",
+    "sympy": "1.14.0",
+    "xgboost": "3.2.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  }
+}

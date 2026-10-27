@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rsa-hardness-framework"
+version = "1.0.0"
+description = "Hybrid ML framework for RSA factorization difficulty prediction and PQC migration guidance"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Sristi Mitra"},
+    {name = "Zishnendu Sarker"},
+]
+license = {text = "MIT"}
+keywords = ["rsa", "cryptanalysis", "machine-learning", "post-quantum", "factorization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*"]
+exclude = ["tests*", "notebooks*", "scripts*", "data*", "models*", "results*", "docs*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311", "py312", "py313"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+]

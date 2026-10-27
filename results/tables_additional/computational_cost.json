@@ -1,0 +1,8 @@
+{
+  "xgb_train_sec": 0.7897101000417024,
+  "cb_train_sec": 1.2304319000104442,
+  "total_train_sec": 2.0201420000521466,
+  "inference_per_sample_ms": 0.00401043222910002,
+  "avg_factorization_sec": 0.131801456608217,
+  "speedup_factor": 32864.65125924707
+}

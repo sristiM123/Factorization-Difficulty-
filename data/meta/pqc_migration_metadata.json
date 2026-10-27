@@ -1,0 +1,44 @@
+{
+  "n_samples_assessed": 9367,
+  "bit_range": [
+    32,
+    160
+  ],
+  "vulnerability_score_range": [
+    0.4496372767857143,
+    0.9893973214285714
+  ],
+  "migration_tier_distribution": {
+    "PLANNED": 6282,
+    "URGENT": 2962,
+    "MONITOR": 123
+  },
+  "predicted_algorithm_distribution": {
+    "pollard_rho": 4601,
+    "ecm": 4517,
+    "fermat": 185,
+    "pollard_pm1": 64
+  },
+  "urgency_weights": {
+    "vulnerability": 0.5,
+    "security_margin": 0.3,
+    "time_horizon": 0.2
+  },
+  "nist_reference": "NIST SP 800-57 Part 1 Rev. 5",
+  "pqc_levels": {
+    "1": {
+      "security_bits": 128,
+      "schemes": "Kyber-512 / Dilithium-2"
+    },
+    "3": {
+      "security_bits": 192,
+      "schemes": "Kyber-768 / Dilithium-3"
+    },
+    "5": {
+      "security_bits": 256,
+      "schemes": "Kyber-1024 / Dilithium-5"
+    }
+  },
+  "minimum_acceptable_security_bits": 112,
+  "methodology": "Vulnerability score = 50% predicted_ease + 30% security_deficit + 20% time_horizon_factor"
+}
